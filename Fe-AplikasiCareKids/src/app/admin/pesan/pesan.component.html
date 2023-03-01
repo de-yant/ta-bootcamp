@@ -1,0 +1,35 @@
+<div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center fw-bold" style="font-size: 42px;">PESAN MASUK</h2>
+                <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col" width="20px">No</th>
+                        <th scope="col" width="170px">Nama Lengkap</th>
+                        <th scope="col" width="200px">Email</th>
+                        <th scope="col" width="150">Nomor Telepon</th>
+                        <th scope="col" width="700px">Pesan</th>
+                        <th scope="col" width="80px">Aksi</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of pesan | paginate: { itemsPerPage: 15, currentPage: page }">
+                        <td scope="row"></td>
+                        <td>{{data.nama}}</td>
+                        <td>{{data.email}}</td>
+                        <td>{{data.phone}}</td>
+                        <td>{{data.pesan}}</td>
+                        <td>
+                          <button (click)="delPesan(data.id)" class="btn btn-danger btn-sm me-2 ">Hapus</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div>
+                    <pagination-controls class="text-center my-pagination" (pageChange)="page = $event"></pagination-controls>
+                  </div>
+            </div>
+        </div>
+</div>
+

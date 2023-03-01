@@ -1,0 +1,84 @@
+:host{
+    display: flex;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+#overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 98;}
+
+#container{
+    z-index: 99;
+    width: 20%;
+    height: 350px;
+    box-shadow: inset;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 20px;
+}
+
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header .title{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#content .image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 100%;
+}
+
+#content .image img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#content .form-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#action{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#action .btn{
+    margin: 0px 5px;
+}
+

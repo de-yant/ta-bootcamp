@@ -1,0 +1,194 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+nav {
+  background: #3C6BC6;
+  height: 80px;
+  width: 100%;
+}
+
+label.logo {
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+
+.logo {
+  font-size: 35px;
+  color: #fff;
+  font-weight: bold;
+  margin-left: 3%;
+  line-height: 68px;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #fff;
+}
+
+nav ul {
+  float: right;
+  margin-right: 9%;
+}
+
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 20px;
+  font-weight: bold;
+}
+
+nav ul li a {
+  color: #fff;
+  font-size: 18px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background: orange;
+}
+
+.active {
+  background: orange;
+  transition: .5s;
+}
+
+ng-sidebar-container {
+  display: none;
+}
+
+.footer {
+  width: 100%;
+  height: auto;
+  background-color: #3C6BC6;
+  text-align: center;
+  color: rgb(255, 252, 252);
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.copyrigth {
+  margin-top: 2px;
+}
+
+.footer a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: rgb(3, 3, 3);
+}
+
+@media (max-width: 1150px) {
+  ng-sidebar-container {
+    display: block;
+  }
+
+  .sidebar {
+    display: block;
+  }
+
+  .sidebar .logo {
+    margin-left: -33px;
+  }
+
+  .sidebar .btn {
+    display: block;
+    float: right;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    margin-right: 8%;
+    margin-top: 5px;
+  }
+
+  ng-sidebar ul {
+    display: block;
+    background: #3C6BC6;
+    text-align: left;
+    transition: all .5s;
+    z-index: 1 !important;
+    position: fixed;
+    width: 40%;
+    height: 100vh;
+    top: 80px;
+  }
+
+  ng-sidebar ul li {
+    display: block;
+    margin-left: 50px;
+    margin-top: 5px;
+  }
+
+  ng-sidebar ul li a {
+    display: block;
+    color: #fff;
+    line-height: 30px;
+  }
+
+  ng-sidebar ul li a:hover {
+    background: orange;
+    color: #000;
+  }
+
+  ng-sidebar .menu {
+    display: block;
+    font-size: 17px;
+    color: black;
+    font-weight: bold;
+    background-color: orange;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 63px;
+  }
+
+  .menu .btn-menu {
+    display: block;
+    float: right;
+    color: #ffffff;
+    margin-right: 30px;
+    border: none;
+  }
+
+  .navi {
+    display: none;
+  }
+}
+
+@media (max-width: 550px) {
+  label.logo {
+    font-size: 30px;
+    margin-left: 20px;
+  }
+
+  nav ul li a {
+    font-size: 14px;
+  }
+
+  ng-sidebar ul li {
+    margin-left: 20px;
+  }
+
+  ng-sidebar .menu {
+    display: block;
+    font-size: 17px;
+    color: black;
+    font-weight: bold;
+    background-color: orange;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 33px;
+
+  }
+}

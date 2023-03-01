@@ -1,0 +1,45 @@
+<body>
+  <nav>
+    <ng-sidebar-container>
+      <ng-sidebar [opened]="opened">
+        <ul>
+          <label class="menu">Menu
+            <label (click)="toggleSidebar()" class="btn-menu">
+              <i class="bi bi-x-circle"></i>
+            </label>
+          </label>
+          <li (click)="toggleSidebar()"><a routerLink="dashboard" routerLinkActive="active">Beranda</a></li>
+          <li (click)="toggleSidebar()"><a routerLink="postingan" routerLinkActive="active">Postingan</a></li>
+          <li (click)="toggleSidebar()"><a routerLink="pesan" routerLinkActive="active">Pesan</a></li>
+          <li><a (click)="adminService.showDialog = true">Keluar</a></li>
+        </ul>
+      </ng-sidebar>
+      <div ng-sidebar-content class="sidebar">
+        <label class="logo"><a routerLink="dashboard">CareKids</a></label>
+        <button (click)="toggleSidebar()" class="btn">
+          <i class="bi bi-menu-app mt-0 fa-2x"></i>
+        </button>
+      </div>
+    </ng-sidebar-container>
+    <div class="navi">
+      <label class="logo"><a routerLink="dashboard">CareKids</a></label>
+      <ul>
+        <li><a routerLink="dashboard" routerLinkActive="active">Beranda</a></li>
+        <li><a routerLink="postingan" routerLinkActive="active">Postingan</a></li>
+        <li><a routerLink="pesan" routerLinkActive="active">Pesan</a></li>
+        <li><img src="../assets/images/logo.png" class="profil" width="40px" alt=""
+            (click)="adminService.showDialog = true">
+        </li>
+      </ul>
+    </div>
+
+    <app-profile *ngIf="adminService.showDialog"></app-profile>
+    <router-outlet></router-outlet>
+
+    <div class="footer fixed-bottom">
+      <div class="row">
+        <p class="copyright">Copyright &copy; 2023 All Rights Reserved by <a routerLink="beranda">CareKids</a></p>
+      </div>
+    </div>
+  </nav>
+</body>

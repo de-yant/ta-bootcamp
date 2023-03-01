@@ -1,0 +1,69 @@
+<section class="container">
+    <div class="row col-12">
+        <div class="slider">
+            <!-- [carousel]="carousels" [autoSlide]="true" -->
+            <app-carousel [carousel]="carousels" [autoSlide]="true" [slideInterval]="7000"></app-carousel>
+        </div>
+        <div class="postingan col-9">
+            <div class="title-home">
+                <p>Postingan Terbaru</p>
+            </div>
+            <div class="card-deck">
+                <div class="card"
+                    *ngFor="let data of beranda | paginate: { itemsPerPage: 9, currentPage: page }">
+                    <div class="blog-image">
+                        <img src="{{ data.thumbnail }}">
+                    </div>
+            
+                    <div class="blog-content">
+                        <div class="blog-title" routerLink="/{{ data.category }}/detail/{{ data.id }}">{{ data.title }}</div>
+                        <div class="blog-category">{{ data.category }}</div>
+                        <p class="blog-desc">{{ data.description }} <a routerLink="/{{ data.category }}/detail/{{ data.id }}">Read More</a></p>
+                        <div class="blog-footer">
+                            <div class="blog-avatar"><img src="{{ data.author_profile }}"></div>
+                            <div>
+                                <span class="blog-author">{{ data.author }}</span>
+                                <div class="blog-post">
+                                    <span><i class="fa fa-clock-o"></i> {{ data.created_at }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <pagination-controls class="text-center my-pagination" (pageChange)="page = $event"></pagination-controls>
+            </div>
+        </div>
+
+        <div class="side" >
+            <div class="top">
+                <div class="title-home">
+                    <p>Artikel Populer</p>
+                </div>
+                <div class="top-article">
+                    <ul class="list-group" >
+                        <li class="list-group-item" *ngFor="let data of education">
+                        <a class="" routerLink="/{{ data.category }}/detail/{{ data.id }}">{{ data.title }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="about">
+                <div class="title-home">
+                    <p> Tentang Kami</p>
+                </div>
+                <div class="card-about" *ngFor="let data of about">
+                    <div class="img">
+                        <img class="" src="../assets/images/logo.png" alt="profile">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">CareKids</h5>
+                        <p class="card-text">{{ data.visi }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

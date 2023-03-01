@@ -1,0 +1,35 @@
+<div class="container">
+    <nav class="navbar navbar-light bg-light">
+        <form class="form-inline">
+          <input class="search" name="search" type="search" placeholder="Cari . . ." required required [(ngModel)]="searchText"
+            (input)="search(searchText)">
+        </form>
+    </nav>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col" width="20px">No</th>
+                <th scope="col" width="250px">Postingan</th>
+                <th scope="col" width="20px">Category</th>
+                <th scope="col" width="20px">Tanggal</th>
+                <th scope="col" width="120px">Aksi</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let data of draft | paginate: { itemsPerPage: 15, currentPage: page } | search: searchText; index as i">
+            <tr>
+                <td align="center"></td>
+                <td>{{ data.title }}</td>
+                <td align="center">{{ data.category }}</td>
+                <td align="center">{{ data.created_at }}</td>
+                <td align="center">
+                    <button class="btn btn-success btn-sm me-2"><a routerLink="detail/{{ data.id }}">Detail</a></button>
+                    <button class="btn btn-warning btn-sm me-2"><a routerLink="edit/{{ data.id }}">Edit</a></button>
+                    <button (click)="deletePostingan(data.id)" class="btn btn-danger btn-sm me-2 ">Hapus</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <pagination-controls class="text-center my-pagination" (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>

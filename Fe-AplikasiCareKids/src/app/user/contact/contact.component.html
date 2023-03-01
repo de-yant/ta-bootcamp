@@ -1,0 +1,88 @@
+<section class="card">
+    <div class="row col-12">
+        <div class="form col-8">
+            <div class="header">
+                <h3 class="h1-responsive font-weight-bold ">Hubungi Kami</h3>
+                <p class="w-responsive mb-3">Apakah Anda memiliki pertanyaan? <br> Tolong jangan ragu untuk menghubungi kami
+                    secara langsung.<br>Tim kami akan membalas pesan anda secepatnya</p>
+            </div>
+            <form [formGroup]="contactForm" id="contact-form" name="contact-form" (ngSubmit)="onSubmit(postForm.value)" #postForm="ngForm">
+
+                <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Berhasil !</strong> Pesan anda telah terkirim.
+                    <button (click)="closeAlert()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <label for="name" class="">NAMA LENGKAP</label>
+                            <input type="text"  name="nama" formControlName="nama" class="form-control"  placeholder="Masukan Nama Lengkap Anda *" >
+                            <span *ngIf="contactForm.controls.nama.invalid && (contactForm.controls.nama.dirty || contactForm.controls.nama.touched)" class="text-danger">
+                                Nama Lengkap harus diisi
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <label for="email" class="">EMAIL</label>
+                            <input type="text"  name="email" formControlName="email" class="form-control" placeholder="Masukan Email Anda *">
+                            <span *ngIf="contactForm.controls.email.invalid && (contactForm.controls.email.dirty || contactForm.controls.email.touched)" class="text-danger">
+                                Email harus diisi
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <label for="phone" class="">NO TELEPON</label>
+                            <input type="text"   name="phone" formControlName="phone" class="form-control" placeholder="Masukan Nomor Telepon Anda *">
+                            <span *ngIf="contactForm.controls.phone.invalid && (contactForm.controls.phone.dirty || contactForm.controls.phone.touched)" class="text-danger">
+                                Nomor Telepon harus diisi
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form">
+                            <label for="message">PESAN</label>
+                            <textarea type="text" name="pesan" formControlName="pesan" rows="6"
+                                class="form-control md-textarea" placeholder="Masukan Pesan Anda *"></textarea>
+                            <span *ngIf="contactForm.controls.pesan.invalid && (contactForm.controls.pesan.dirty || contactForm.controls.pesan.touched)" class="text-danger">
+                                Pesan harus diisi
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center text-md-left mt-2">
+                    <button [disabled]="contactForm.invalid" class="btn" type="submit">Kirim</button>
+                </div>
+            </form>
+            <div class="status"></div>
+        </div>
+
+        <div class="time col-3" *ngFor="let data of setting">
+            <ul class="list-unstyled">
+                <li class="title-call">
+                    <p>Jam Operasional<br>{{ data.time }}</p>
+                </li>
+                <li><i class="bi bi-telephone mt-0 fa-2x"></i>
+                    <a routerLink=""><p>{{ data.telp }}</p></a>
+                </li>
+                <li><i class="bi bi-whatsapp  mt-0 fa-2x"></i>
+                     <a routerLink=""><p>{{ data.telp }}</p></a>
+                </li>
+                <li><i class="bi bi-envelope mt-0 fa-2x"></i>
+                    <a routerLink=""><p>{{ data.email }}</p></a>
+                </li>
+                <li><i class="bi bi-geo-alt mt-0 fa-2x"></i>
+                    <a routerLink=""><p>{{ data.address }}</p></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

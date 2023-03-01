@@ -1,0 +1,24 @@
+<div id="overlay"></div>
+
+<div id="container">
+  <div id="header">
+    <div class="title">Profil</div>
+  </div>
+  <div id="content">
+    <div class="image ">
+      <img src="../assets/images/logo.png" alt="">
+    </div>
+
+    <form [formGroup]="profile">
+      <div class="form-group">
+        <label for="">Nama Lengkap</label>
+        <input type="full_name" class="form-control" formControlName="full_name">
+      </div>
+      <div id="action">
+        <button class="btn btn-primary">Simpan</button>
+        <button class="btn btn-warning" (click)="adminService.showDialog = false">Batal</button>
+        <button (click)="postLogout()" class="btn btn-danger">Keluar</button>
+      </div>
+    </form>
+  </div>
+</div>

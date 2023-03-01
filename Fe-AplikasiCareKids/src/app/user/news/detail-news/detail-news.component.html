@@ -1,0 +1,18 @@
+<div class="card-work" *ngFor="let data of news ">
+    <div class="header">
+        <div class="card-title">{{ data.title }}</div>
+    </div>
+    <div class="card-date">
+        <div class="date">{{ data.created_at }}</div>
+        <div class="author">By : {{ data.author }}</div>
+    </div>
+    <div class="img-section">
+        <img src="{{ data.thumbnail }}" alt="image" class="img-thumbnail">
+    </div>
+    <div class="card-desc">
+        <div class="card-content">
+            <p class="content" style="text-indent: 45px;">{{ data.content }}</p>
+        </div>
+        <news-images></news-images>
+    </div>
+    <detailnews-comments></detailnews-comments>
